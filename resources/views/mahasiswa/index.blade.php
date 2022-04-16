@@ -11,10 +11,21 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left mt-2">
-                <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
+                <h2><center> JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</center></h2>
             </div>
-            <div class="float-right my-2">
-                 <a class="btn btn-success" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
+            <br><br>
+            <div class="d-flex justify-content-between">
+                <div>
+                <form class="form-inline" method="POST" action="{{ route('mahasiswa.search') }}">
+                    @csrf
+                    <input name="search" class="form-control mr-sm-2" type="text" autocomplete="off"
+                        placeholder="Search" value="{{old('search')}}">
+                    <button class="btn btn-secondary" type="submit">Search</button>
+                </form>
+                </div>
+                <div>   
+                    <a class="btn btn-success" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
+                </div>
             </div>
         </div>
     </div>
@@ -58,9 +69,9 @@
  @endforeach
  </table>
  <br/>
-    Halaman        : {{ $mahasiswa->currentPage() }} <br/>
+    <!-- Halaman        : {{ $mahasiswa->currentPage() }} <br/>
 	Jumlah Data      : {{ $mahasiswa->total() }} <br/>
-	Data Per Halaman : {{ $mahasiswa->perPage() }} <br/>
+	Data Per Halaman : {{ $mahasiswa->perPage() }} <br/> -->
      
 	{{ $mahasiswa->links() }}
 

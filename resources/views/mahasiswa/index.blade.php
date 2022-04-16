@@ -1,5 +1,13 @@
 @extends('mahasiswa.layout')
 @section('content')
+    <style type="text/css">
+		.pagination li{
+			float: center;
+			list-style-type: none;
+			margin:7px;
+		}
+	</style>
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left mt-2">
@@ -49,4 +57,11 @@
     </tr>
  @endforeach
  </table>
+ <br/>
+    Halaman        : {{ $mahasiswa->currentPage() }} <br/>
+	Jumlah Data      : {{ $mahasiswa->total() }} <br/>
+	Data Per Halaman : {{ $mahasiswa->perPage() }} <br/>
+     
+	{{ $mahasiswa->links() }}
+
 @endsection

@@ -17,6 +17,10 @@ use Illuminate\Http\Request;
 Route::resource('mahasiswa', MahasiswaController::class);
 Route::post('search', [MahasiswaController::class, 'searchMhs'])->name('mahasiswa.search');
 
+Route::prefix('mahasiswa')->group(function () {
+    Route::get('nilai/{nim}', [MahasiswaController::class, 'showKhs'])->name('mahasiswa.khs');
+});
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

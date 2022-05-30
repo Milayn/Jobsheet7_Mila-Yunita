@@ -180,4 +180,10 @@ class MahasiswaController extends Controller
         return redirect()->route('mahasiswa.index')
             -> with('success', 'Mahasiswa Berhasil Dihapus');
     }
+
+    public function showKhs($Nim)
+    {
+        $data = Mahasiswa::where('nim',$Nim)->with(['kelas', 'khs.mataKuliah'])->first();
+        return view('mahasiswa.khs', compact('data'));
+    }
 }

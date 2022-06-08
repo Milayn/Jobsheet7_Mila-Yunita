@@ -10,7 +10,7 @@
 
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left mt-2">
+            <div class="pull-left mt-2"><br>
                 <h2><center> JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</center></h2>
             </div>
             <br><br>
@@ -45,6 +45,7 @@
         {{-- <th>E-mail</th>
         <th>Alamat</th>
         <th>Tanggal Lahir</th> --}}
+        <th>Foto</th>
         <th>Action</th>
     </tr>
  @foreach ($paginate as $mhs)
@@ -53,6 +54,10 @@
         <td>{{ $mhs ->nama }}</td>
         <td>{{ $mhs ->kelas->nama_kelas }}</td>
         <td>{{ $mhs ->jurusan }}</td>
+        <td>
+            <img width="50px" src="{{asset('storage/'.$mhs->foto)}}">
+        </td> 
+
         {{-- <td>{{ $mhs ->email }}</td>
         <td>{{ $mhs ->alamat }}</td>
         <td>{{ $mhs ->tanggalLahir }}</td> --}}
@@ -63,7 +68,7 @@
             @csrf
             @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>
-                <a class="btn btn-warning" href="{{ route('mahasiswa.khs',$mhs->nim) }}">Nilai</a>
+                <a class="btn btn-warning" href="{{ route('mahasiswa.khs',$mhs->id_mahasiswa)}}">Nilai</a>
           </form>
         </td>
     </tr>

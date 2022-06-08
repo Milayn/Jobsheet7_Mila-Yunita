@@ -21,6 +21,12 @@ Route::prefix('mahasiswa')->group(function () {
     Route::get('nilai/{nim}', [MahasiswaController::class, 'showKhs'])->name('mahasiswa.khs');
 });
 
+Route::get('mahasiswa/nilai/{id_mahasiswa}',[MahasiswaController::class, 'showKhs'])
+    ->name('mahasiswa.nilai');
+
+Route::get('/mahasiswa/cetak_khs/{id_mahasiswa}', [MahasiswaController::class, 'cetak_khs'])
+->name('mahasiswa.cetak_khs');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

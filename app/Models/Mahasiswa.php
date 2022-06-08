@@ -25,6 +25,7 @@ class Mahasiswa extends Model
         'Email',
         'Alamat',
         'tanggalLahir',
+        'Foto',
     ];
 
     public static function getByNim($Nim){
@@ -35,8 +36,8 @@ class Mahasiswa extends Model
         return $this->belongsTo(Kelas::class);
     }
 
-    public function khs()
-    {
-        return $this->hasMany(Mahasiswa_MataKuliah::class, 'mahasiswa_id');
-    }
+    // public function khs()
+    // {
+    //     return $this->hasMany(Mahasiswa_MataKuliah::class, 'mahasiswa_id');
+    // }
 }
